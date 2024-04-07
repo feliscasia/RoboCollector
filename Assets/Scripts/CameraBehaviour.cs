@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class CameraBehaviour : MonoBehaviour
 {
+    public float zBarrier = -25.0f;
+
     [Tooltip("Where is the camera looking?")]
     public Transform target;
 
@@ -19,6 +21,11 @@ public class CameraBehaviour : MonoBehaviour
         if (target != null)
         {
             transform.position = target.position + offset;
+
+            if (transform.position.z < zBarrier)
+            {
+                transform.position = new Vector3(transform.position.x, transform.position.y, zBarrier);
+            }
 
             // Rotate the camera to look at the player
             transform.LookAt(target);

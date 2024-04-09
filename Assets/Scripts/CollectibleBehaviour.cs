@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class CollectibleBehaviour : MonoBehaviour
 {
-    public int score;
+    public ObstacleBehaviour obstacleBehaviourScript;
+    
     // Start is called before the first frame update
     void Start()
     {
-        score = 0;
+        
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -16,8 +17,7 @@ public class CollectibleBehaviour : MonoBehaviour
         // Did the collectible collide with the player
         if (collision.gameObject.GetComponent <PlayerBehaviour>())
         {
-            // Increase score by 500
-            score = score + 500;
+            Destroy(gameObject);
         }
     }
 }

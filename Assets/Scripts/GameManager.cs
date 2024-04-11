@@ -9,38 +9,37 @@ public class GameManager : MonoBehaviour
 {
     public GameObject obstaclePrefab;
     public GameObject collectiblePrefab;
+    public GameObject titleScreen;
     private Vector3 spawnPos;
     public PlayerBehaviour playerBehaviourScript;
     public TextMeshProUGUI livesCount;
     public TextMeshProUGUI scoreCount;
     public TextMeshProUGUI timeCount;
-    public int timer;
-    public int difficultyLevel = 5;
+    //public int timer;
+    // public int difficulty = 5;
     private float spawn = 20;
-    private float startDelay = 0.1f;
+    public bool isGameActive;
 
     // Start is called before the first frame update
     void Start()
     {
-        timer = 120;
-        for (int i = 0; i < difficultyLevel; i++)
-        {
-            Invoke("SpawnObstacle", 0);
-            Invoke("SpawnCollectible", 0);
-            Invoke("SpawnCollectible", 0);
-        }
+        titleScreen.gameObject.SetActive(true);
     }
 
     // Update is called once per frame
     void Update()
     {
-        scoreCount.text = "Score: " + playerBehaviourScript.score;
-        livesCount.text = "Lives: " + playerBehaviourScript.lives;
+        if (isGameActive)
+        {
+            scoreCount.text = "Score: " + playerBehaviourScript.score;
+            livesCount.text = "Lives: " + playerBehaviourScript.lives;
+            timeCount.text  = "Time: "  + playerBehaviourScript.time;
+        }
     }
 
     void SpawnObstacle()
     {
-        Vector3 spawnPos = new Vector3(Random.Range(-spawn, spawn), 1.5f, Random.Range(-spawn, spawn));
+        spawnPos = new Vector3(Random.Range(-spawn, spawn), 1.5f, Random.Range(-spawn, spawn));
         Instantiate(obstaclePrefab, spawnPos, obstaclePrefab.transform.rotation);
     }
 
@@ -48,5 +47,19 @@ public class GameManager : MonoBehaviour
     {
         Vector3 spawnPos = new Vector3(Random.Range(-spawn, spawn), 0.5f, Random.Range(-spawn, spawn));
         Instantiate(collectiblePrefab, spawnPos, collectiblePrefab.transform.rotation);
+    }
+
+    public void StartGame(int difficulty)
+    {
+        Debug.Log("---------xxxxxxxx " + difficulty);
+        isGameActive = true;
+        ////timer = 120;
+        titleScreen.gameObject.SetActive(false);
+        for (int i = 0; i < difficulty; i++)
+        {
+            Invoke("SpawnObstacle", 0);
+            Invoke("SpawnCollectible", 0);
+            Invoke("SpawnCollectible", 0);
+        }
     }
 }

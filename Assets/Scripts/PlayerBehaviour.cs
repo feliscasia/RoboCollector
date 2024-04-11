@@ -9,9 +9,12 @@ public class PlayerBehaviour : MonoBehaviour
     // Accessing the player's Rigidbody component
     private Rigidbody rb;
 
+    public GameManager gameManager;
+
     // We need a score count and a lives count
     public int score;
     public int lives;
+    public int time;
 
     private float V = 0.2f;
 
@@ -32,17 +35,19 @@ public class PlayerBehaviour : MonoBehaviour
         rb = GetComponent<Rigidbody>();
 
         score = 0;
-
         lives = 5;
+        time = 120;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        var horizontalSpeed = Input.GetAxis("Horizontal") * speed;
-        var frontSpeed = Input.GetAxis("Vertical") * speed;
-
-        rb.AddForce(horizontalSpeed, 0, frontSpeed);
+        if(gameManager.isGameActive)
+        {
+            var horizontalSpeed = Input.GetAxis("Horizontal") * speed;
+            var frontSpeed = Input.GetAxis("Vertical") * speed;
+            rb.AddForce(horizontalSpeed, 0, frontSpeed);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)

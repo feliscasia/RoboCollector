@@ -51,10 +51,9 @@ public class GameManager : MonoBehaviour
 
     public void StartGame(int difficulty)
     {
-        Debug.Log("---------xxxxxxxx " + difficulty);
         isGameActive = true;
-        ////timer = 120;
         titleScreen.gameObject.SetActive(false);
+        StartCoroutine(playerBehaviourScript.countdownTimer());
         for (int i = 0; i < difficulty; i++)
         {
             Invoke("SpawnObstacle", 0);

@@ -37,6 +37,7 @@ public class PlayerBehaviour : MonoBehaviour
         score = 0;
         lives = 5;
         time = 120;
+        StartCoroutine(countdownTimer());
     }
 
     // Update is called once per frame
@@ -47,6 +48,17 @@ public class PlayerBehaviour : MonoBehaviour
             var horizontalSpeed = Input.GetAxis("Horizontal") * speed;
             var frontSpeed = Input.GetAxis("Vertical") * speed;
             rb.AddForce(horizontalSpeed, 0, frontSpeed);
+        }
+    }
+
+    public IEnumerator countdownTimer()
+    {
+        Debug.Log("Countdown ready");
+        while (gameManager.isGameActive)
+        {
+            Debug.Log("Countdown " + time);
+            yield return new WaitForSeconds(1);
+            time -= 1;
         }
     }
 

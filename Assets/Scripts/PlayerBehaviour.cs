@@ -59,6 +59,10 @@ public class PlayerBehaviour : MonoBehaviour
             Debug.Log("Countdown " + time);
             yield return new WaitForSeconds(1);
             time -= 1;
+            if (time < 1)
+            {
+                Invoke("ResetGame", V);
+            }
         }
     }
 

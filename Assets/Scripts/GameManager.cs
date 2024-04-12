@@ -15,10 +15,9 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI livesCount;
     public TextMeshProUGUI scoreCount;
     public TextMeshProUGUI timeCount;
-    //public int timer;
-    // public int difficulty = 5;
     private float spawn = 20;
     public bool isGameActive;
+    public int numberOfCollectibles;
 
     // Start is called before the first frame update
     void Start()
@@ -31,10 +30,17 @@ public class GameManager : MonoBehaviour
     {
         if (isGameActive)
         {
+            numberOfCollectibles = FindObjectsOfType<CollectibleBehaviour>().Length;
             scoreCount.text = "Score: " + playerBehaviourScript.score;
             livesCount.text = "Lives: " + playerBehaviourScript.lives;
             timeCount.text  = "Time: "  + playerBehaviourScript.time;
         }
+    }
+
+    private void ResetGame()
+    {
+        string sceneName = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene(sceneName);
     }
 
     void SpawnObstacle()

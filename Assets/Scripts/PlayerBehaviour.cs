@@ -48,15 +48,18 @@ public class PlayerBehaviour : MonoBehaviour
             var horizontalSpeed = Input.GetAxis("Horizontal") * speed;
             var frontSpeed = Input.GetAxis("Vertical") * speed;
             rb.AddForce(horizontalSpeed, 0, frontSpeed);
+
+            if (gameManager.numberOfCollectibles < 1)
+            {
+                Invoke("ResetGame", V);
+            }
         }
     }
 
     public IEnumerator countdownTimer()
     {
-        Debug.Log("Countdown ready");
         while (gameManager.isGameActive)
         {
-            Debug.Log("Countdown " + time);
             yield return new WaitForSeconds(1);
             time -= 1;
             if (time < 1)

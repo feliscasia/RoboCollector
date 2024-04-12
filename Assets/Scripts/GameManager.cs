@@ -10,6 +10,12 @@ public class GameManager : MonoBehaviour
     public GameObject obstaclePrefab;
     public GameObject collectiblePrefab;
     public GameObject titleScreen;
+    public GameObject gameOver;
+    public GameObject outOfTime;
+    public GameObject victory;
+    public Button gameOverRestart;
+    public Button outOfTimeRestart;
+    public Button victoryRestart;
     private Vector3 spawnPos;
     public PlayerBehaviour playerBehaviourScript;
     public TextMeshProUGUI livesCount;
@@ -23,6 +29,9 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         titleScreen.gameObject.SetActive(true);
+        gameOver.gameObject.SetActive(false);
+        outOfTime.gameObject.SetActive(false);
+        victory.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -37,10 +46,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void ResetGame()
+    public void ResetGame()
     {
-        string sceneName = SceneManager.GetActiveScene().name;
-        SceneManager.LoadScene(sceneName);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     void SpawnObstacle()
@@ -53,6 +61,24 @@ public class GameManager : MonoBehaviour
     {
         Vector3 spawnPos = new Vector3(Random.Range(-spawn, spawn), 0.5f, Random.Range(-spawn, spawn));
         Instantiate(collectiblePrefab, spawnPos, collectiblePrefab.transform.rotation);
+    }
+
+    public void GameOver()
+    {
+        gameOver.gameObject.SetActive(true);
+        isGameActive = false;
+    }
+
+    public void OutOfTime()
+    {
+        outOfTime.gameObject.SetActive(true);
+        isGameActive = false;
+    }
+
+    public void Victory()
+    {
+        victory.gameObject.SetActive(true);
+        isGameActive = false;
     }
 
     public void StartGame(int difficulty)

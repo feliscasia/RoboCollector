@@ -33,7 +33,7 @@ public class PlayerBehaviour : MonoBehaviour
     {
         // We need to access the Rigidbody component
         rb = GetComponent<Rigidbody>();
-
+        
         score = 0;
         lives = 5;
         time = 120;
@@ -51,7 +51,7 @@ public class PlayerBehaviour : MonoBehaviour
 
             if (gameManager.numberOfCollectibles < 1)
             {
-                Invoke("ResetGame", V);
+                gameManager.GetComponent<GameManager>().Victory();
             }
         }
     }
@@ -64,7 +64,7 @@ public class PlayerBehaviour : MonoBehaviour
             time -= 1;
             if (time < 1)
             {
-                Invoke("ResetGame", V);
+                gameManager.GetComponent<GameManager>().OutOfTime();
             }
         }
     }
@@ -81,7 +81,7 @@ public class PlayerBehaviour : MonoBehaviour
             score = score - 20;
             if (lives < 1)
             {
-                Invoke("ResetGame", V);
+                gameManager.GetComponent<GameManager>().GameOver();
             }
         }
     }

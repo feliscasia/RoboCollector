@@ -24,7 +24,7 @@ public class PlayerBehaviour : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
-    // The speed of the ball as it moves
+    // The speed of the object as it moves
     [Range(0,12)]
     public float speed = 10;
 

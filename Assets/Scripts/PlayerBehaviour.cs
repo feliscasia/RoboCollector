@@ -15,6 +15,7 @@ public class PlayerBehaviour : MonoBehaviour
     public int score;
     public int lives;
     public int time;
+    public float rotateSpeed = 2;
 
     private float V = 0.2f;
 
@@ -47,6 +48,8 @@ public class PlayerBehaviour : MonoBehaviour
         {
             var horizontalSpeed = Input.GetAxis("Horizontal") * speed;
             var frontSpeed = Input.GetAxis("Vertical") * speed;
+            transform.LookAt(transform.position + rb.velocity);
+
             rb.AddForce(horizontalSpeed, 0, frontSpeed);
 
             if (gameManager.numberOfCollectibles < 1)

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Threading;
 
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerBehaviour : MonoBehaviour
@@ -51,13 +52,15 @@ public class PlayerBehaviour : MonoBehaviour
             transform.LookAt(transform.position + rb.velocity);
 
             rb.AddForce(horizontalSpeed, 0, frontSpeed);
-
-            if (gameManager.numberOfCollectibles < 1)
-            {
-                gameManager.GetComponent<GameManager>().Victory();
-            }
         }
     }
+
+    private void Update()
+    {
+        
+    }
+
+
 
     public IEnumerator countdownTimer()
     {
@@ -68,6 +71,11 @@ public class PlayerBehaviour : MonoBehaviour
             if (time < 1)
             {
                 gameManager.GetComponent<GameManager>().OutOfTime();
+            }
+
+            if (gameManager.numberOfCollectibles < 1)
+            {
+                gameManager.GetComponent<GameManager>().Victory();
             }
         }
     }

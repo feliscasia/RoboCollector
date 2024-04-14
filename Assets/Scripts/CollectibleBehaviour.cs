@@ -5,7 +5,7 @@ using UnityEngine;
 public class CollectibleBehaviour : MonoBehaviour
 {
     public ObstacleBehaviour obstacleBehaviourScript;
-    public float speed = 0.5f;
+    public float speed = 0.01f;
     private Rigidbody collectibleRb;
     private GameObject player;
 

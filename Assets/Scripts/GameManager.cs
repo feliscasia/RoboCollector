@@ -44,6 +44,11 @@ public class GameManager : MonoBehaviour
             livesCount.text = "Lives: " + playerBehaviourScript.lives;
             timeCount.text  = "Time: "  + playerBehaviourScript.time;
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
 
     public void ResetGame()

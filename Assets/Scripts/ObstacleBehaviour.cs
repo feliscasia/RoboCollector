@@ -7,7 +7,7 @@ public class ObstacleBehaviour : MonoBehaviour
 {
     public float speed = 0.8f;
     private Rigidbody enemyRb;
-    private GameObject player;
+    public GameObject player;
 
     // Start is called before the first frame update
     void Start()

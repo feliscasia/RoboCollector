@@ -42,7 +42,6 @@ public class PlayerBehaviour : MonoBehaviour
         StartCoroutine(countdownTimer());
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         if(gameManager.isGameActive)
@@ -54,13 +53,6 @@ public class PlayerBehaviour : MonoBehaviour
             rb.AddForce(horizontalSpeed, 0, frontSpeed);
         }
     }
-
-    private void Update()
-    {
-        
-    }
-
-
 
     public IEnumerator countdownTimer()
     {

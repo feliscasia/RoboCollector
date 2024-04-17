@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
 
     void SpawnObstacle()
     {
-        spawnPos = new Vector3(Random.Range(-spawn, spawn), 1.5f, Random.Range(-spawn, spawn));
+        spawnPos = new Vector3(Random.Range(-spawn, spawn), 1, Random.Range(-spawn, spawn));
         Instantiate(obstaclePrefab, spawnPos, obstaclePrefab.transform.rotation);
     }
 

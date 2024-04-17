@@ -8,6 +8,7 @@ public class CollectibleBehaviour : MonoBehaviour
     public float speed = 0.01f;
     private Rigidbody collectibleRb;
     private GameObject player;
+    public GameManager gameManager;
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +19,10 @@ public class CollectibleBehaviour : MonoBehaviour
 
     void Update()
     {
-        collectibleRb.AddForce((player.transform.position - transform.position).normalized * speed);
+        if (gameManager.isGameActive)
+        {
+            collectibleRb.AddForce((player.transform.position - transform.position).normalized * speed);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)

@@ -3238,7 +3238,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstaclePrefab: {fileID: 1563315911603332391, guid: 043d341ce1a5f4c13b73f2a6c6e8c62d, type: 3}
-  collectiblePrefab: {fileID: 626379673602896215, guid: 5f2dd86d79e0d4edfbaae07d52243a68, type: 3}
+  collectibleOnePrefab: {fileID: 6930515648990470695, guid: 7f39dd2ab46154f0ca92e0fe2f5fbf65, type: 3}
+  collectibleTwoPrefab: {fileID: 626379673602896215, guid: 5f2dd86d79e0d4edfbaae07d52243a68, type: 3}
+  collectibleThreePrefab: {fileID: 5742541765970666546, guid: 3f9173ac8456f4c679698622cdb38f9c, type: 3}
   titleScreen: {fileID: 1319499774}
   gameOver: {fileID: 671416551}
   outOfTime: {fileID: 925754487}

@@ -13,6 +13,7 @@ public class CollectibleBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         collectibleRb = GetComponent<Rigidbody>();
         player = GameObject.Find("Player");
     }

@@ -8,7 +8,9 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public GameObject obstaclePrefab;
-    public GameObject collectiblePrefab;
+    public GameObject collectibleOnePrefab;
+    public GameObject collectibleTwoPrefab;
+    public GameObject collectibleThreePrefab;
     public GameObject titleScreen;
     public GameObject gameOver;
     public GameObject outOfTime;
@@ -62,10 +64,22 @@ public class GameManager : MonoBehaviour
         Instantiate(obstaclePrefab, spawnPos, obstaclePrefab.transform.rotation);
     }
 
-    void SpawnCollectible()
+    void SpawnCollectibleOne()
     {
         Vector3 spawnPos = new Vector3(Random.Range(-spawn, spawn), 0.5f, Random.Range(-spawn, spawn));
-        Instantiate(collectiblePrefab, spawnPos, collectiblePrefab.transform.rotation);
+        Instantiate(collectibleOnePrefab, spawnPos, collectibleOnePrefab.transform.rotation);
+    }
+
+    void SpawnCollectibleTwo()
+    {
+        Vector3 spawnPos = new Vector3(Random.Range(-spawn, spawn), 0.5f, Random.Range(-spawn, spawn));
+        Instantiate(collectibleTwoPrefab, spawnPos, collectibleTwoPrefab.transform.rotation);
+    }
+
+    void SpawnCollectibleThree()
+    {
+        Vector3 spawnPos = new Vector3(Random.Range(-spawn, spawn), 0.5f, Random.Range(-spawn, spawn));
+        Instantiate(collectibleThreePrefab, spawnPos, collectibleThreePrefab.transform.rotation);
     }
 
     public void GameOver()
@@ -94,8 +108,9 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < difficulty; i++)
         {
             Invoke("SpawnObstacle", 0);
-            Invoke("SpawnCollectible", 0);
-            Invoke("SpawnCollectible", 0);
+            Invoke("SpawnCollectibleOne", 0);
+            Invoke("SpawnCollectibleTwo", 0);
+            Invoke("SpawnCollectibleThree", 0);
         }
     }
 }

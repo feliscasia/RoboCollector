@@ -938,6 +938,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 164306402}
   m_CullTransparentMesh: 1
+--- !u!1001 &200850422
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 368447973}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 6b4e1c9c589714481babcd70f77a087c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6b4e1c9c589714481babcd70f77a087c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6b4e1c9c589714481babcd70f77a087c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6b4e1c9c589714481babcd70f77a087c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6b4e1c9c589714481babcd70f77a087c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6b4e1c9c589714481babcd70f77a087c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6b4e1c9c589714481babcd70f77a087c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6b4e1c9c589714481babcd70f77a087c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6b4e1c9c589714481babcd70f77a087c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6b4e1c9c589714481babcd70f77a087c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6b4e1c9c589714481babcd70f77a087c, type: 3}
+      propertyPath: m_Name
+      value: robot prototype
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6b4e1c9c589714481babcd70f77a087c, type: 3}
 --- !u!1 &208930053
 GameObject:
   m_ObjectHideFlags: 0
@@ -1548,7 +1605,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 657169817}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &368447974
@@ -1567,6 +1625,7 @@ MonoBehaviour:
   score: 0
   lives: 0
   time: 0
+  rotateSpeed: 2
   speed: 10
 --- !u!54 &368447975
 Rigidbody:
@@ -2101,6 +2160,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &657169817 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6b4e1c9c589714481babcd70f77a087c, type: 3}
+  m_PrefabInstance: {fileID: 200850422}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &671416551
 GameObject:
   m_ObjectHideFlags: 0
@@ -3212,7 +3276,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstaclePrefab: {fileID: 1563315911603332391, guid: 043d341ce1a5f4c13b73f2a6c6e8c62d, type: 3}
-  collectiblePrefab: {fileID: 626379673602896215, guid: 5f2dd86d79e0d4edfbaae07d52243a68, type: 3}
+  collectibleOnePrefab: {fileID: 6930515648990470695, guid: 7f39dd2ab46154f0ca92e0fe2f5fbf65, type: 3}
+  collectibleTwoPrefab: {fileID: 626379673602896215, guid: 5f2dd86d79e0d4edfbaae07d52243a68, type: 3}
+  collectibleThreePrefab: {fileID: 5742541765970666546, guid: 3f9173ac8456f4c679698622cdb38f9c, type: 3}
   titleScreen: {fileID: 1319499774}
   gameOver: {fileID: 671416551}
   outOfTime: {fileID: 925754487}
